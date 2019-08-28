@@ -2,11 +2,6 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-.body{
-	background: rgb(216, 214, 213);
-	font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
-	background-image: url(../images/bkgd.jpg);
-  }
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -25,7 +20,7 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+	font: inherit;
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
