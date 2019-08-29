@@ -1,91 +1,71 @@
-$(document).ready(function() {
-      
-var valueMin = 1
-var valueMax = 19  
-var toGuess = Math.floor(Math.random() * (120 - 20 + 1)) + 19;
-var collected = 0;
 
-var crystalValue1 = Math.floor(Math.random() * (valueMax - valueMin + 1)) + valueMin;
-var crystalValue2 = Math.floor(Math.random() * (valueMax - valueMin + 1)) + valueMin;
-var crystalValue3 = Math.floor(Math.random() * (valueMax - valueMin + 1)) + valueMin;
-var crystalValue4 = Math.floor(Math.random() * (valueMax - valueMin + 1)) + valueMin;
+$(document).ready(function () {
 
-    $("#crystal1").click(function(){
-      alert("This crystal is worth " + crystalValue1);
-      collected = Number(collected) + Number(crystalValue1);
-      console.log(collected)
-      document.getElementById('collected').innerHTML = collected;
-      if (collected === toGuess) {
-            wins++;
-            alert("YOU WIN")
-            }
-            if (collected > toGuess) {
-            alert("LOSER")
-            losses++;
-            }
+    var guess = Math.floor(Math.random() * (120 - 20 + 1)) + 19;
+    var collected = "0";
+    var won = "0";
+    var lost = "0";
+    var min = 1;
+    var max = 19;
 
-      document.getElementById('wins').innerHTML = wins;
-      document.getElementById('losses').innerHTML = losses;
+    console.log(guess)
+    $('.guess').text("Try to collect " + guess + " crystals");
+
+    function rando() {
+        return Math.floor(Math.random() * (max - min + 1)) + min; 
+        }
+
+    function rando2(){
+        guess = Math.floor(Math.random() * (120 - 20 + 1)) + 19;
+        }
+        
+    $( "img" ).val( rando );
+
+    $( '#c1' ).click(function() {
+        var text = $( this ).text();
+        console.log($('#c1').val());
     });
 
-    $("#crystal2").click(function(){
-      alert("This crystal is worth " + crystalValue2);
-      collected = Number(collected) + Number(crystalValue2);
-      console.log(collected)
-      document.getElementById('collected').innerHTML = collected;
-      if (collected === toGuess) {
-            wins++;
-            alert("YOU WIN")
-            }
-            if (collected > toGuess) {
-            alert("LOSER")
-            losses++;
-            }
-
-      document.getElementById('wins').innerHTML = wins;
-      document.getElementById('losses').innerHTML = losses;
+    $( '#c2' ).click(function() {
+        var text = $( this ).text();
+        console.log($('#c2').val());
     });
 
-    $("#crystal3").click(function(){
-      alert("This crystal is worth " + crystalValue3);
-      collected = Number(collected) + Number(crystalValue3);
-      console.log(collected)
-      document.getElementById('collected').innerHTML = collected;
-      if (collected === toGuess) {
-            wins++;
-            alert("YOU WIN")
-            }
-            if (collected > toGuess) {
-            alert("LOSER")
-            losses++;
-            }
-
-      document.getElementById('wins').innerHTML = wins;
-      document.getElementById('losses').innerHTML = losses;
+    $( '#c3' ).click(function() {
+        var text = $( this ).text();
+        console.log($('#c3').val());
     });
 
-    $("#crystal4").click(function(){
-      alert("This crystal is worth " + crystalValue4);
-      collected = Number(collected) + Number(crystalValue4);
-      console.log(collected)
-      document.getElementById('collected').innerHTML = collected;
-      if (collected === toGuess) {
-            wins++;
-            alert("YOU WIN")
-            }
-            if (collected > toGuess) {
-            alert("LOSER")
-            losses++;
-            }
-
-      document.getElementById('wins').innerHTML = wins;
-      document.getElementById('losses').innerHTML = losses;
+    $( '#c4' ).click(function() {
+        var text = $( this ).text();
+        console.log($('#c4').val());
     });
-  
-    console.log(toGuess)
 
-      document.getElementById("toGuess").innerHTML = toGuess;
+    $('img').click(function(){
+        collected = Number(collected) + Number($(this).val());
+        $('.total').text("Total: " + collected);
 
 
-      //on alert function re run vars
+if (collected == guess) {
+      won++;
+      collected = "0";
+      alert("lucky guess...");
+      $('.wins').text("Wins: " + won); 
+      $( "img" ).val( rando ); 
+      $('.guess').val(rando2);
+      console.log(guess)
+    }
+    else if (collected > guess) {
+      lost++;   
+      collected = "0";
+      alert("LOSER!");
+      $('.losses').text("Losses: " + lost); 
+      $( "img" ).val( rando );
+      $('.guess').val(rando2);
+    }   
+});
+
+$('.total').text("Total: " + collected);
+
+console.log(guess)
 });
