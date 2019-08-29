@@ -53,6 +53,8 @@ if (collected == guess) {
       $('.wins').text("Wins: " + won); 
       $( "img" ).val( rando ); 
       $('.guess').val(rando2);
+      guess = Math.floor(Math.random() * (120 - 20 + 1)) + 19;
+      $('.guess').text("Try to collect " + guess + " crystals");
       console.log(guess)
     }
     else if (collected > guess) {
@@ -62,6 +64,9 @@ if (collected == guess) {
       $('.losses').text("Losses: " + lost); 
       $( "img" ).val( rando );
       $('.guess').val(rando2);
+      guess = Math.floor(Math.random() * (120 - 20 + 1)) + 19;
+      $('.guess').text("Try to collect " + guess + " crystals");
+      console.log(guess)
     }   
 });
 
