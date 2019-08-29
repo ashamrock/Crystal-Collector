@@ -8,7 +8,6 @@ $(document).ready(function () {
     var min = 1;
     var max = 19;
 
-    console.log(guess)
     $('.guess').text("Try to collect " + guess + " crystals");
 
     function rando() {
@@ -43,7 +42,7 @@ $(document).ready(function () {
 
     $('img').click(function(){
         collected = Number(collected) + Number($(this).val());
-        $('.total').text("Total: " + collected);
+        $('.total').text("Total collected: " + collected);
 
 
 if (collected == guess) {
@@ -55,7 +54,6 @@ if (collected == guess) {
       $('.guess').val(rando2);
       guess = Math.floor(Math.random() * (120 - 20 + 1)) + 19;
       $('.guess').text("Try to collect " + guess + " crystals");
-      console.log(guess)
     }
     else if (collected > guess) {
       lost++;   
@@ -66,11 +64,7 @@ if (collected == guess) {
       $('.guess').val(rando2);
       guess = Math.floor(Math.random() * (120 - 20 + 1)) + 19;
       $('.guess').text("Try to collect " + guess + " crystals");
-      console.log(guess)
     }   
 });
 
-$('.total').text("Total: " + collected);
-
-console.log(guess)
 });
